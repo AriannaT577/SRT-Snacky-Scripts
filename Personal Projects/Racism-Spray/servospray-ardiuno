@@ -1,0 +1,26 @@
+#include <Servo.h>
+
+Servo sprayServo1;
+Servo sprayServo2;
+
+void setup() {
+  Serial.begin(9600);
+  sprayServo1.attach(9);
+  sprayServo2.attach(12);
+  sprayServo1.write(0);
+  sprayServo2.write(0);
+}
+
+void loop() {
+  if (Serial.available()) {
+    char command = Serial.read();
+
+    if (command == '1') {
+      sprayServo1.write(360);
+      sprayServo2.write(180); // spray position
+    } else if (command == '0') {
+      sprayServo1.write(0);
+      sprayServo2.write(0); // idle position
+    }
+  }
+}

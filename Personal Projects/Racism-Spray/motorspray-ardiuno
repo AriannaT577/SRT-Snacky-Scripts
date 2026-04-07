@@ -1,0 +1,23 @@
+char command;
+const int motorPin = 9;  // IN1 on Motor Driver
+const int motorTime = 500; // milliseconds motor runs
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(motoqrPin, OUTPUT);
+  digitalWrite(motorPin, LOW);
+}
+
+void loop() {
+  if (Serial.available()) {
+    command = Serial.read();
+
+    if (command == '1') {
+      // Rotate motor forward
+      digitalWrite(motorPin, HIGH);
+      delay(motorTime); // Run for limited time
+      digitalWrite(motorPin, LOW);
+    }
+    // else do nothing if '0'
+  }
+}
