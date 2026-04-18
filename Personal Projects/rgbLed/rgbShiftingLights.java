@@ -8,14 +8,14 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp
-public class rgbLights extends LinearOpMode {
+public class rgbShiftingLights extends LinearOpMode {
 
     private CRServo conv1;
     private CRServo conv2;
     private Servo ShootAngle;
     private Servo ShootHelp;
     private Servo CBLOCK;
-    private Servo rgbIndicator;
+    private Servo led;
 
 
     // Strafe correction factors
@@ -58,7 +58,7 @@ public class rgbLights extends LinearOpMode {
         ShootAngle = hardwareMap.get(Servo.class, "ShootAngle");
         ShootHelp = hardwareMap.get(Servo.class, "ShootHelp");
         CBLOCK = hardwareMap.get(Servo.class, "servo");
-        rgbIndicator = hardwareMap.get(Servo.class, "rgbIndicator");
+        led = hardwareMap.get(Servo.class, "led");
         
         // Motor directions
         frontLeft.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -184,9 +184,9 @@ LShooter.setPower(ShooterPower);
             boolean shift = true;
             if (shift) {
                 double wave = (Math.sin(getRuntime() * 3.0) + 1.0) / 2.0;
-                rgbIndicator.setPosition(0.3 + (wave * 0.4)); 
+                led.setPosition(0.3 + (wave * 0.4)); 
             } else {
-                rgbIndicator.setPosition(1.0); // White when Idle
+                led.setPosition(1.0); // White when Idle
             }
 
 
