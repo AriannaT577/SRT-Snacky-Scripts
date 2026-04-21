@@ -40,16 +40,16 @@ public class rgbColourRotatorThing extends LinearOpMode {
     private boolean shift = false;
 
     //colour stuff
-    private String[] colors = {"Red","Orange","Yellow","Sage","Green","Azure","Blue","Violet","White"};
-    private double[] colorPositions = {0.277, 0.333, 0.388, 0.444, 0.5, 0.555, 0.611, 0.722, 1.0};
+    private String[] colours = {"Red","Orange","Yellow","Sage","Green","Azure","Blue","Violet","White"};
+    private double[] colourPositions = {0.277, 0.333, 0.388, 0.444, 0.5, 0.555, 0.611, 0.722, 1.0};
     private Random random = new Random();
     private int actionValue = 0;
-    private int lastColorIndex = 0;  
+    private int lastColourIndex = 0;  
 
-    private void pickRandomColor() {
+    private void pickRandomColour() {
         actionValue++;
-        lastColorIndex = random.nextInt(colors.length);
-        led.setPosition(colorPositions[lastColorIndex]);
+        lastColourIndex = random.nextInt(colours.length);
+        led.setPosition(colourPositions[lastColourIndex]);
     }
 
     @Override
@@ -115,7 +115,7 @@ public class rgbColourRotatorThing extends LinearOpMode {
 
             // SPEED MODES
             if (gamepad1.right_trigger > 0) { DriveSpeed = 1; turnspeed = 0.5;}
-            if (gamepad1.b) { DriveSpeed = 0.5; turnspeed = 0.8; pickRandomColor();}
+            if (gamepad1.b) { DriveSpeed = 0.5; turnspeed = 0.8; pickRandomColour();}
             if (gamepad1.left_trigger > 0) { DriveSpeed = 0.2; turnspeed = 0.9;}
             
 
@@ -136,22 +136,22 @@ public class rgbColourRotatorThing extends LinearOpMode {
             if (gamepad2.dpad_up && !prevDpadUp) {
                 ShootAngle.setPosition(0.63);
                 ShooterPower = 0.85;
-                pickRandomColor();
+                pickRandomColour();
             }
             if (gamepad2.dpad_right && !prevDpadRight) {
                 ShootAngle.setPosition(0.67);
                 ShooterPower = 0.4;
-                pickRandomColor();
+                pickRandomColour();
             }
             if (gamepad2.dpad_down && !prevDpadDown) {
                 ShootAngle.setPosition(0.7);
                 ShooterPower = 0.6;
-                pickRandomColor();
+                pickRandomColour();
             }
             if (gamepad2.dpad_left && !prevDpadLeft) {
                 ShootAngle.setPosition(0.8);
                 ShooterPower = 0.7;
-                pickRandomColor();
+                pickRandomColour();
             }
 
             prevDpadUp = gamepad2.dpad_up;
@@ -168,7 +168,7 @@ public class rgbColourRotatorThing extends LinearOpMode {
             // Toggle with left bumper
             if (gamepad2.left_bumper && !prevLeftBumper) {
                 conveyorTogglePower = (conveyorTogglePower == 0) ? 1 : 0;
-                pickRandomColor();
+                pickRandomColour();
             }
             prevLeftBumper = gamepad2.left_bumper;
 
@@ -187,7 +187,7 @@ public class rgbColourRotatorThing extends LinearOpMode {
             // Toggle with right bumper
             if (gamepad2.right_bumper && !prevRightBumper) {
                 intakeTogglePower = (intakeTogglePower == 0) ? 1 : 0;
-                pickRandomColor();
+                pickRandomColour();
             }
             prevRightBumper = gamepad2.right_bumper;
 
@@ -211,7 +211,7 @@ public class rgbColourRotatorThing extends LinearOpMode {
 
             if (gamepad2.back && !prevBack) {
                 cblockClosed = !cblockClosed;
-                pickRandomColor();
+                pickRandomColour();
             }
             prevBack = gamepad2.back;
 
