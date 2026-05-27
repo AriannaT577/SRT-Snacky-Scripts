@@ -3,7 +3,7 @@ Folders are pretty self explanatory, mostly RoadRunner stuff but be sure to read
 Please refer to the proper FTC roadrunner/pedro pathing documentation in order to complete the tests and get proper values for your robot.
 
 Yes I shamelessly copied Teeple's repo (Senior Snacks). People to checkout for SRT stuff include:
-- Riley's repo (Senior Snacks) for code
+- Riley's repo ([Senior Snacks](https://github.com/iceprisim/SRT---Senior-Snacks-)) for code
 - Liam Bigboom's repo (liam-the-hoarder) for CADS
 - Laurana's repo (LG-Shim) for even more code
 - Tyce's repo (Tbo37/SRTcode) for even more code for previous years
